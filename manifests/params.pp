@@ -21,23 +21,24 @@ class fluent_bit::params {
 
   $repo_enabled = true
   $repo_gpgcheck = true
-  $repo_gpgkey = 'http://packages.fluentbit.io/fluentbit.key'
+  $repo_gpgkey = 'https://packages.fluentbit.io/fluentbit.key'
   $repo_gpgkeyid = 'F209D8762A60CD49E680633B4FF8368B6EA0722A'
 
-  $package_name = 'td-agent-bit'
+  $package_name = 'fluent-bit'
   $package_ensure = present
 
-  $service_name = 'td-agent-bit'
+  $service_name = 'fluent-bit'
   $service_ensure = running
   $service_enable = true
   $service_manage = true
 
-  $config_file = '/etc/td-agent-bit/td-agent-bit.conf'
-  $config_path = '/etc/td-agent-bit/config.d'
+  # Note: /etc/fluent-bit created by the package
+  $config_file = '/etc/fluent-bit/fluent-bit.conf'
+  $config_path = '/etc/fluent-bit/config.d'
   $config_owner = 'root'
   $config_group = 'root'
   $configs = {}
 
-  $parsers_file = '/etc/td-agent-bit/parsers-smx.conf'
+  $parsers_file = '/etc/fluent-bit/parsers-smx.conf'
   $parsers = {}
 }

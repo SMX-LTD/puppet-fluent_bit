@@ -10,7 +10,7 @@ class fluent_bit::config inherits fluent_bit {
     purge   => true,
   } ->
 
-  file { "${fluent_bit::config_file}":
+  file { $fluent_bit::config_file:
     ensure  => present,
     content => fluent_bit_config($fluent_bit::configs),
     require => Class['Fluent_bit::Install'],

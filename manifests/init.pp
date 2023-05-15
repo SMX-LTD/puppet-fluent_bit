@@ -25,10 +25,12 @@ class fluent_bit (
   Optional[String] $parsers_file = $::fluent_bit::params::parsers_file,
   Optional[Hash] $parsers = $::fluent_bit::params::parsers,
 ) inherits fluent_bit::params {
+  contain fluent_bit::uninstall_old
   contain fluent_bit::install
   contain fluent_bit::config
   contain fluent_bit::service
 
+  Class['Fluent_bit::Uninstall_old'] ->
   Class['Fluent_bit::Install'] ->
   Class['Fluent_bit::Config'] ->
   Class['Fluent_bit::Service']
