@@ -19,10 +19,16 @@ module FluentBitConfig
       c.select{ |e| e !="service" }
        .map { |k, v|
           key = k.strip.downcase
-          value = v
           padding = 15 - key.length
           padding = padding < 1 ? 1 : padding
-          "  " << key << " "*padding <<  value}
+          if v.kind_of?(Array)
+            v.map { |vv|
+              "  " << key << " "*padding << vv
+            }.join("\n")
+          else
+            "  " << key << " "*padding << v
+          end
+       }
        .join("\n")
        .concat("\n")
     end
