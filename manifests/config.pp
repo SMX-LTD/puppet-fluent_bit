@@ -34,4 +34,24 @@ class fluent_bit::config inherits fluent_bit {
     }
   }
 
+  # Any lua scripts provided
+  file { $fluent_bit::lua_path:
+    ensure  => directory,
+    owner   => $fluent_bit::config_owner,
+    group   => $fluent_bit::config_group,
+    mode    => '0750',
+    recurse => true,
+    force   => true,
+  }
+  $fluent_bit::lua.each |$_key, $_code| {
+    file { "${fluent_bit::lua_path}/${_key}":
+      ensure  => present,
+      content => $_code,
+      owner   => $fluent_bit::config_owner,
+      group   => $fluent_bit::config_group,
+      mode    => '0644',
+      require => File[$fluent_bit::lua_path],
+      notify  => Class['Fluent_bit::Service'],
+    }
+  }
 }

@@ -24,6 +24,8 @@ class fluent_bit (
   Hash $configs = $::fluent_bit::params::configs,
   Optional[String] $parsers_file = $::fluent_bit::params::parsers_file,
   Optional[Hash] $parsers = $::fluent_bit::params::parsers,
+  String $lua_path = $::fluent_bit::params::lua_path,
+  Optional[Hash] $lua = $::fluent_bit::params::lua,
 ) inherits fluent_bit::params {
   contain fluent_bit::uninstall_old
   contain fluent_bit::install
