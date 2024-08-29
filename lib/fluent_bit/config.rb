@@ -22,12 +22,13 @@ module FluentBitConfig
           padding = 15 - key.length
           padding = padding < 1 ? 1 : padding
           if v.kind_of?(Array)
-            v.map { |vv|
+            mapped = v.map { |vv|
               "  " << key << " "*padding << vv
             }.join("\n")
           else
-            "  " << key << " "*padding << v
+            mapped = "  " << key << " "*padding << v
           end
+          mapped
        }
        .join("\n")
        .concat("\n")
