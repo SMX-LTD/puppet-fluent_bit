@@ -10,25 +10,17 @@
             "version_requirement": "2.x"
         }
     ],
-    "issues_url": "https://github.com/yannh/puppet_fluent_bit/issues",
     "license": "Apache-2.0",
     "name": "puppet_fluent_bit",
     "operatingsystem_support": [
         {
-            "operatingsystem": "Ubuntu",
+            "operatingsystem": "Redhat",
             "operatingsystemrelease": [
-                "16.04"
-            ]
-        },
-        {
-            "operatingsystem": "Debian",
-            "operatingsystemrelease": [
-                "8"
+                "7", "8"
             ]
         }
     ],
-    "project_page": "https://github.com/yannh/puppet_fluent_bit",
-    "source": "https://github.com/yannh/fluent_bit",
+    "source": "https://github.com/SMX-LTD/puppet-fluent_bit",
     "summary": "Installs, configures, and manages Fluent-bit data collector",
     "tags": [
         "fluent-bit",
@@ -36,5 +28,5 @@
         "td-agent-bit",
         "logging"
     ],
-    "version": "0.9.0"
+    "version": "1.0.0"
 }

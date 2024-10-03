@@ -41,4 +41,7 @@ class fluent_bit::params {
 
   $parsers_file = '/etc/fluent-bit/parsers-smx.conf'
   $parsers = {}
+
+  $lua_path = '/etc/fluent-bit/lua'
+  $lua = {}
 }
